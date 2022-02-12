@@ -1,0 +1,370 @@
+Operating Systems  - UNIX
+Bibi Diba Ezedyar
+
+Exercise 1. 
+1.1.	What is the difference between Unix and Linux?
+
+UNIX is a complete operating system whereas Linux is a Kernel. In other words, UNIX is the car, presumably Mercedes, whereas Linux is the 4AMATIC engine; so Linux is just a part of the car. 
+
+Some differences between UNIX and Linux are listed as follows;
+
+-	UNIX was developed in the year 1970 at the Bell Labs. Linux came into existence in 1991 as an open source softwear developed by various developers. 
+-	UNIX’s peimary focus was on Command Line Interface (CLI). Linux is an open-source OS based in UNIX. Linux had both CLI and GUI right from the beginning. 
+-	UNIX has very little compatibality with many different types of hardware. Linux is very flexible and compatible with most of the hardware systems available. 
+-	UNIX always requires well-defined hardware machinery. Linux is a free download softwear. It can be easily dowloaded too. 
+-	UNIX is not free. There are many types of UNIX available. Linux is free. Few versions of Linux like the Red hat Linux are charged. 
+
+1.2.	What is MINIX, who is the author of MINIX?
+
+MINIX is a POSIX-compliant, UNIX like operating system based on a micro-kernel architecture. Early versions of MINIX were created by by Andrew S. Tanebaum for educational purposes. 
+
+1.3.	Who is the author of Linux? What is the relationship between Linux and MINIX?
+
+The author of Linux is Linus Torvalds. Linux was developed on a MINIX file system and thus inherits some features from MINIX. There were some tensions, in other words, some debates between the two authors for instance, the Tanenbanum-Torvalds debate was a written debate between S. Tanenbaum and Linus Torvalds, regardig the Linux kernel and kernel architechture in general. The debate has sometimes been considered a flame war. 
+
+1.4.	Give the command to display the version of your kernel.
+             How to know if your kernel is stable or unstable?
+
+Command: % uname -r
+My kernel version is 21.1.0 – x, y, z
+
+If y = even number; it means that your kernel is stable. 
+If y = odd number; it means that your kernel is unstable.
+I am running my codes using my Mac’s Terminal.
+For Windows users, its better to keep an eye on the latest release of the kernel and to install it. 
+
+1.5.	Give the command to change your working directory. 
+              Which kind of files are inside the /etc directory?
+
+System Configuration Files. 
+/etc means a central location for all your confuguration files are located and this can be treated as nerve centre of your Linux/UNIX machine.
+
+1.6.	What is the utility of the options “-ltr” in the following command? Ls -ltr
+
+Ls -ltr is a command that displays permission for all files in a directiry. -ltr sorts out the files. 
+-l = long list
+-t = time modification
+-r = reserved 
+It will display a list of file permissions.
+
+1.7.	What is the utility of the option “-r” in the following command and what is the difference between “-r” and “-R” in the following commands:
+
+Cp -r/home/osman/EPITA/home/backup/
+Cp -R/home/sman/EPITA/home/backup
+
+If source_file designates a directory, cp copies the directory and the entire subtree connected at that point.  If the source_file ends in a /, the contents of the directory are copied rather than the directory itself.  This option also causes symbolic links to be copied, rather than indirected through, and for cp to create special files rather than copying them as normal files.  Created directories have the same mode as the corresponding source directory, unmodified by the process' umask.
+
+Lowercase -r was an older option.
+Uppercase -R was a standardized option.
+
+1.8.	What is the utility of the option “-n” used in the following command: 
+              Cat -n/etc/group
+
+Cat command displays the content of a file and -n displays the number of lines in the file.
+
+1.9.	what is the difference between the following commands when applied to file.txt with initial permissions (-rwxrwxrwx). Give the permissions of file.txt after each command and explain the difference between both commands (without sequential execution): 
+1.	chmod ugo+rw file.txt 
+-	We gave the three groups all the read and write permissions. This, chmod ugo+rw file.txt, gives the permissions but do not take away any of the permissions.
+
+2.	chmod 666 file.txt
+-	We gave the three groups the permission to read and write but took away the permission to execute for all the three groups.
+
+1.10.	Whats the difference between options “-a” and “-A” in the following commands:
+1.	ls -a: This command will display a full list of the directory including hidden files. -a displays . and .. with the hidden files. 
+2.	ls -A: This command will also display a list of directories without . and .. -A wont show .. and . with the hidden files. 
+
+
+1.11.	Whats the utility of option “-p” in the following command:
+1.	Mkdir -p dir1/subdir1/small: mkdir command in UNIX allows the user to create directories. With -p, we can create sub-directories.
+
+1.11.    Whats the utility of the option “%s” in the following command
+             1. date +%s: It displays the number of seconds from the date of creation to the current day. It is 1643048258 seconds.  
+1.12. Give the commands to:
+- Create a hard link called “hshortcut” for the file “file.txt”
+-  ln file.txt hshortcut
+- Create a soft link called “ssorthcut” for the file “file.txt”
+-  ln -s file.txt ssorthcut
+
+1.13.	What is the utility of the options “-lwc” in the following command:
+-	wc -lwc file.txt
+-	In the -lwc command, l stands for the number of lines, w stands for the number of words and c stands for the number of characters. 
+-	The output is = 2       1       7 file.txt
+
+1.14.	Giv the command to display only the before last line from a given file “file.txt”
+-	Tail -n 2 file_name | head -n 1
+
+1.15.	What is the difference between the following commands when applied to file.txt with initial permissions (-rwxr--r--). Give the permissions of file.txt after each command and explain the difference between both commands (without sequential execution): 
+- chmod ugo+rw file.txt 
+This command gives permission to read and write. Also, user will still retain its permission to execute the file as this command just adds permission rather than taking them away.
+              - chmod 620 file.txt
+6, 2, 0 represents the individual permissions for the user, group and other. 4 stands for read, 2 stands for write and 1 stands for execute. When you add these numbers up, you get the permissions for each user. This command has taken away the permissions to execute for the user(6). It has just taken away the permission to read but has given permission to write for the group(2). Lastly, no permissions have been given for others(0) 
+
+
+1.16.	Give five different syntaxes to write a loop in bash
+1.	For loop: for VARIABLE in 1 2 3 4 5 . . N 
+do
+command1
+command2
+command3
+done
+2.	While loop: While command 
+do 
+statement to be executed 
+done 
+3.	Until: until commaand
+Do
+statement to be exected until command
+done 
+4.	select v in data_list
+do
+statement1
+statement2
+statement3
+done
+5.	for OUTPUT in $(Linux-Or-Unix-Command-Here)
+do
+command1 on $OUTPUT
+command2 on $OUTPUT
+commandN
+done 
+
+
+1.17.	What is the utility of the points “-s”, ”-n”, ”-t”, ”-p” in the following read comand:
+1.	read -s var: Does not echo the user’s input assigned to var.
+2.	read -n 8 var: Takes 8 alphanumerical input and assign to var.
+3.	read -t 2 var: Is timed out to two seconds to receive input from user and assign to var.
+4.	read -p “Could you please enter the value of the variable :” var: This prompts the the output of this string and tale input to assign to var.
+
+1.18.	Explain the following diference between “;”, “||”, “&&” in the following commands:
+1.	ls -l ; mkdir directory; cd directory; touch f{1..9} : Commands following the “;” are executed whether or not the commands before them are correct or not.
+2.	ls -l file.txt || echo the file does not exist : Commands following the || execute only the preceeding that fails to execute.
+3.	ls -l file.txt && echo the file exist : Commands following && are executing only the one proceeding that were successfully executed.
+Exercise 2
+
+Give only the output of the following scripts: 
+1) cat script1.sh 
+#!/bin/bash 
+person=jenny
+echo $person 
+echo '$person' 
+echo "$person" 
+PS > ./script1.sh 
+Answer: 
+jenny
+$person
+jenny
+2)$cat script2.sh 
+#!/bin/bash
+for i in 1 2 3 4 5 
+do 
+ echo "Looping ... number $i" 
+done 
+PS > ./script2.sh 
+Answer:
+Looping ... number 1
+Looping ... number 2
+Looping ... number 3
+Looping ... number 4
+Looping ... number 5
+3) $cat script3.sh
+#!/bin/bash
+for var in $(seq 7) 
+do 
+echo -n "$var ... " 
+t=$(( 2 * var + 20 )) 
+echo $(( t % 7 + 1)) 
+done
+echo DONE! 
+PS > ./script3.sh 
+Answer: 
+1 ... 2
+2 ... 4
+3 ... 6
+4 ... 1
+5 ... 3
+6 ... 5
+7 ... 7
+DONE!
+4) $cat script4.sh
+#!/bin/bash 
+user=/home/fred/fredy/Siso/fred7.tar.gz 
+echo ${#user}
+echo ${user1:=FREDO.tar.gz}
+echo $user1
+echo ${user2:-fredo.tar.gz}
+echo $user2
+echo ${user:6:4}
+echo ${user/fred/jean}
+echo ${user//fred/jean}
+echo ${user/fred}
+echo ${user//fred}
+echo ${user#*.}
+echo ${user##*/}
+echo ${user%/*}
+echo ${user%%/*}
+echo ${user1^}
+echo ${user1^^}
+echo ${user1,} 
+echo ${user1,,} 
+echo ${user2,} 
+echo ${user2,,} 
+echo ${user~} 
+echo ${user~~} 
+m1info=(Ahmed Alexandre Alice Bob) 
+m1info[100]=Charlie
+echo $m1info
+echo ${m1info[*]} 
+echo ${#m1info[*]} 
+echo $m1info[1] 
+echo ${m1info[2]} 
+echo ${#m1info[2]} 
+echo ${!m1info[*]} 
+echo ${m1info[1]:2:3} 
+PS > ./script4.sh 
+Answer:
+34
+FREDO.tar.gz
+FREDO.tar.gz
+fredo.tar.gz
+fred
+/home/jean/fredy/Siso/fred7.tar.gz
+/home/jean/jeany/Siso/jean7.tar.gz
+/home//fredy/Siso/fred7.tar.gz
+/home//y/Siso/7.tar.gz
+tar.gz
+fred7.tar.gz
+/home/fred/fredy/Siso
+FREDO.tar.gz
+FREDO.TAR.GZ
+fREDO.tar.gz
+fredo.tar.gz
+/home/fred/fredy/Siso/fred7.tar.gz
+/HOME/FRED/FREDY/sISO/FRED7.TAR.GZ
+Ahmed
+Ahmed Alexandre Alice Bob Charlie
+5
+Ahmed[1]
+Alice
+5
+0 1 2 3 100
+exa
+5) $cat script5.sh
+#!/bin/bash funct()
+{ 
+if [ $# = 0 ]; then echo 0 
+return fi 
+total=0 
+for i do 
+total=`expr $total + $i` done 
+expr $total / $# } 
+echo the result of 4, 8 and 21 is `funct 4 8 21` echo the average of 4 and 14 is `funct 4 14` echo the average of nothing is `funct` 
+PS > ./script5.sh 
+Answer:
+the result of 4, 8 and 21 is 11
+the average of 4 and 14 is 9
+the average of nothing is 0
+6) $cat script6.sh
+#!/bin/bash fonct()
+{ 
+echo "$2 * $2" | bc > $1
+echo "$2 * $2 * $2" | bc >> $1 
+} output=/tmp/tmp.$$ for i in 1 2 3 4 5
+do 
+fonct $output $i
+res1=`head -1 $output` res2=`tail -1 $output`
+echo "The res1 of $i is $res1" echo "The res2 of $i is $res2" 
+done
+rm -f $output 
+PS > ./script6.sh 
+Answer:
+the result of 4, 8 and 21 is 11
+the average of 4 and 14 is 9
+the average of nothing is 0
+6) $cat script7.sh
+#!/bin/bash for i in *.doc 
+do done 
+mv $i ${i%.doc}.txt PS > ./script7.sh 
+Answer: 
+In the last question, the .doc files are transformed to .txt files.
+
+Exercise 3: 
+3.1) Write a script bash that displays the following menu: 
+This script randomly generates the lottery numbers for you: 1) Loto
+2) Euro Million
+3) Exit 
+Select your game:1
+Numbers: 3 9 21 37 42 Lucky:5 Select your game:2
+Numbers: 6 9 18 19 49 stars:2 5 Select your game: 
+In Loto, the script generates 5 different random numbers between 1 and 49, and a lucky number between 1 and 10. In EuroMillion, the script generates 5 different random numbers between 1 and 50, and two different numbers (denoted by stars/étoiles) between 1 and 12. The bold characters in previous example are either user input or output. 
+3.2) Write a bash script that displays the following menu when it is executed: 
+PS1> ./ex5.sh dir1 dir2 fichier1.txt fichier2.txt fichier3.txt Ce script a pour objectif de réaliser une sauvegarde : 
+1.	1)  Avec une extension tar.gz 
+2.	2)  Avec une extension tar.bz2 
+3.	3)  Avec une extension tar.xz 
+Votre choix : 3 
+After entering the choice of the user (3 for example), the script will call the associated backup function, with the list of files and directories passed as arguments. You must write 3 functions for each case in the script and put them in separate files (one function by file).
+The function will have to create the backup archive (with the command tar), whose name is incremental: backupx.tar.xz (with x is the date and time of backup), while keeping the previous backup files. 
+Do not forget to add a usage function and test the presence of the arguments before displaying 
+the menu. 
+3.3) Write a script which loops by asking the user to enter a mark or press the q key to indicate the end of the entry. The script should save whole marks in a file and display: 
+a. The number of marks entered b. The average
+c. The maximum value
+d. The minimum value 
+e. The number of marks below 10
+3.4) Write a script that takes two operands and an operator (+, -, x, /, pow, mod) as argument 
+or by prompting the user when no argument is provided, and displays the result of the 
+desired operation in the terminal: 
+./script.sh 3 x 9 27 
+3.5) Write a script that takes as argument an integer number (n) and displays the factorial (n!). Verify that the number of arguments is equal to 1, otherwise, prompt the user to enter the value of n.
+4/6 
+3.6) Write a script that prompt user to enter various integer values to fill an array calls the bubble sorting function (or any other sorting method) to sort the array and display the result. 
+3.7) Write a bash script that displays the number of characters in each line of a file passed as an argument. 
+3.8) Write a bash script that transforms the number passed into an argument into: binary, octal and hexadecimal. 
+3.9) Write a bash script that is used to identify and count the bash files in the current work directory. Note that some bash files do not have the extension sh. 
+3.10) Write a bash script that takes a word as an argument, and check if this word exists in the French language. The French dictionary is in: /usr/share/dict/French 
+11.	3.11)  Write a bash script that returns the number of days in month given as argument 
+12.	3.12)  Write a script that deletes duplicated files (same content with different names) in the 
+current directory. 
+13.	3.13)  Write a script that deletes files with size greater than 100MB in the current directory 
+14.	3.14)  Write a script that takes as input an alpha-numerical chain from user (e.g. 123abc456) 
+and transforms lower case letters in the chain into upper case letters. 
+
+Exercise 4: 
+
+We consider the following array: 
+fruits=(apple banana pear orange) 
+Give and explain the output of each of the following commands: 
+echo ${#fruits} = 5, This command gives the number of characters in a string.
+echo ${#fruits[@]} = 4, This command gives us the number of elements on an array.
+echo ${#fruits[0]} = 5, This command displays the number of strings of the array at 0.
+echo ${#fruits[1]} = 6, This command gives us the number of strings of the array at 1.
+echo ${#fruits[2]} = 4, This command gives us the number of strings of the array at 2.
+echo ${#fruits[3]} = 6, This command gives us the number of strings of the array at 3.
+echo ${food[@]:3} = orange, This array gives us the element of the array positioned at 3.
+echo ${food[@]:2:3} = pear orange, This array gives us the elements of the array positioned at 2, then 3.
+4.1) Give the bash commands for:
+
+4.2) Add the element "aa" at the beginning of the table 
+ - fruits = (aa ${fruits[*]})
+4.3) Add the element "gg" at the end of the table
+ - fruits = (${fruits[*]}gg)
+4.4) Add the element "dd" in the middle 
+ - fruits = (“${fruits[@]:0:3}” “dd” “${fruits[@] :3}”) 
+
+Exercise 5
+In this exercise, we use the squid configuration file located in /etc/squid/squid.conf as input file. You can install squid using the following command: apt install squid 
+1.	Write a grep command that selects the lines from the squid.conf that have exactly three characters 
+-	grep ‘\<…\>’  
+2.	Writeagrepcommandthatselectsthelinesfromthesquid.confthathaveatleastthree characters. 
+3.	Write a grep command that selects the lines from the squid.conf that have three or fewer characters 
+4.	Write a grep command that counts the number blank lines in the squid.conf 
+5.	Write a grep command that selects the lines from the squid.conf that do not start with 
+A to G 
+6.	Write a grep command that deletes the comments and the white lines from the file 
+squid.conf 
+7.	Give the ′′sed′′ command that replaces the whole occurrence of the word ′′squid′′ by ′′squid3′′ only in the first 25 lines 
+8.	Give the ′′sed′′ command that replaces the word ′′squid′′ by ′′squid3′′ in whole lines in 
+the file squid.conf 
+9.	Give the ′′sed′′ command that deletes whole lines containing the substring ′′ACL′′ (case 
+insensitive) 
+10. Give the ′′sed′′ command that deletes from line number 10 to the last line 11. Give the ′′sed′′ command that deletes lines containing the pattern ′′src′′ 12. Give the ′′sed′′ command that deletes whole comments and empty lines
